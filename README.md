@@ -26,6 +26,19 @@
 * **Surprising Behavior:** Watching the "What would change the risk?" recommendations update dynamically in real time based on changes to parameters like contract type or payment methods.
 * **Handling Difficult Inputs:** Extreme or out-of-range inputs (such as negative tenures or abnormally inflated monthly charges) can still cause friction or unhandled edge cases since strict UI bounds aren't fully enforced.
 
+## Written Insights & Check Your Understanding
+
+### Deployment Experience
+* **Public URL:** https://churn-risk-advisor-inrvjcl5wdsnferw2nziyx.streamlit.app
+* **Deployment Outcome:** The first deployment succeeded on Streamlit Community Cloud after matching the Python version (3.11) and dependencies in `requirements.txt`.
+
+### Check Your Understanding Answers
+1. **Why `get_dummies(drop_first=True)` breaks single-customer scoring:** When encoding a single row, missing categorical levels alter the total column count or order, causing a feature mismatch with the trained model.
+2. **Parity test purpose:** It compares raw model predictions against serialized pipeline predictions across all training rows to ensure feature engineering and preprocessing remain identical after export.
+3. **Caching models (`st.cache_resource`):** `st.cache_resource` caches global, non-serializable objects (like loaded ML models) across reruns, avoiding expensive file reads on every user interaction.
+4. **Derived TotalCharges:** Deriving `TotalCharges = Tenure * MonthlyCharges` prevents user input contradictions (e.g., setting Tenure to 0 with high TotalCharges) and ensures logical consistency.
+5. **Exact scikit-learn version pinning:** ML pickling/joblib serialization relies on internal class structures that can change between library versions, causing deserialization or inference errors.
+6. **Two-year contract offer impact:** While contract length correlates strongly with lower churn, offering one doesn't guarantee retention; controlled A/B testing is required to confirm causal retention.
 
 ## How to Run Locally
 Clone the repository and run the following commands in your terminal:
