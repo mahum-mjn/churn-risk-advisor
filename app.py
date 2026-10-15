@@ -124,7 +124,7 @@ customer = pd.DataFrame([row])
 # ------------------- Main area --------------------
 st.title('Customer Churn Risk Advisor')
 st.caption(
-    f"{meta['model_name']} | CV AUC {meta['cv_auc']:.3f} +/-"
+    f"{meta['model_name']} | CV AUC {meta['cv_auc']:.4f} +/-"
     f" {meta['cv_auc_std']:.3f} | Decision support only"
 )
 
