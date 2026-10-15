@@ -34,9 +34,9 @@
     "PaymentMethod_Mailed check"
   ],
   "threshold": 0.3,
-  "cv_auc": 0.845,
+  "cv_auc": 0.8502,
   "cv_auc_std": 0.012,
-  "test_auc": 0.84,
+  "test_auc": 0.848,
   "training_data": "IBM Telco Customer Churn, 7,043 customers",
   "version": "1.0"
 }
